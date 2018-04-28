@@ -5,15 +5,26 @@ import { Sparklines, SparklinesLine } from 'react-sparklines';
 class WeatherList extends Component{
     renderWeather(cityData) {
         const cityName = cityData.city.name;
-        const temps = cityData.list.map(weather => weather.main.temp);
-        console.log(temps);
+        const temperature = cityData.list.map(weather => weather.main.temp);
+        const pressure = cityData.list.map(weather => weather.main.pressure);
+        const humidity = cityData.list.map(weather => weather.main.humidity);
         return (
             <tr key={cityName}>
                 <td>{cityName}</td>
                 <td>
-                    <Sparklines height={120} width={180} data={temps}>
+                    <Sparklines height={120} width={180} data={temperature}>
                         <SparklinesLine color="red" />
                     </Sparklines>    
+                </td>
+                <td>
+                <Sparklines height={120} width={180} data={pressure}>
+                        <SparklinesLine color="green" />
+                </Sparklines>
+                </td>
+                <td>
+                <Sparklines height={120} width={180} data={humidity}>
+                        <SparklinesLine color="yellow" />
+                </Sparklines>
                 </td>
             </tr>
         );
