@@ -5,8 +5,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "boostrap": "^2.0.0",
+    "materialize-css": "^1.0.0-rc.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-materialize": "^2.2.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-scripts": "1.1.4",

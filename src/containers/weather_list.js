@@ -12,19 +12,19 @@ class WeatherList extends Component{
             <tr key={cityName}>
                 <td>{cityName}</td>
                 <td>
-                    <Sparklines height={120} width={180} data={temperature}>
+                    <Sparklines height={38} width={100} data={temperature}>
                         <SparklinesLine color="red" />
                     </Sparklines>    
                 </td>
                 <td>
-                <Sparklines height={120} width={180} data={pressure}>
+                    <Sparklines height={50} width={100} data={pressure}>
                         <SparklinesLine color="green" />
-                </Sparklines>
+                    </Sparklines>
                 </td>
                 <td>
-                <Sparklines height={120} width={180} data={humidity}>
+                    <Sparklines height={50} width={100} data={humidity}>
                         <SparklinesLine color="yellow" />
-                </Sparklines>
+                    </Sparklines>
                 </td>
             </tr>
         );
@@ -32,19 +32,20 @@ class WeatherList extends Component{
 
     render(){
         return(
-            <table className="table table-hover">
+            <table className="table table-hover table-dark table-striped">
                 <thead>
                     <tr>
-                        <th>City</th>
-                        <th>Temperature</th>
-                        <th>Pressure</th>
-                        <th>Humidity</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Temperature</th>
+                        <th scope="col">Pressure</th>
+                        <th scope="col">Humidity</th>
                     </tr>            
                 </thead>
                 <tbody>
                     {this.props.weather.map(this.renderWeather)}
                 </tbody>
             </table>
+           
         );
     }
 }
