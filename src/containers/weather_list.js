@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Sparklines, SparklinesLine } from 'react-sparklines'; 
+import { Sparklines, SparklinesLine, SparklinesReferenceLine } from 'react-sparklines'; 
+import _ from 'lodash';
 
 class WeatherList extends Component{
     renderWeather(cityData) {
@@ -14,17 +15,23 @@ class WeatherList extends Component{
                 <td>
                     <Sparklines height={38} width={100} data={temperature}>
                         <SparklinesLine color="red" />
-                    </Sparklines>    
+                        <SparklinesReferenceLine type="avg" />
+                    </Sparklines>
+                    <div>{_.round(_.sum(temperature)/temperature.length)}</div>    
                 </td>
                 <td>
                     <Sparklines height={50} width={100} data={pressure}>
                         <SparklinesLine color="green" />
+                        <SparklinesReferenceLine type="avg" />
                     </Sparklines>
+                    <div>{_.round(_.sum(pressure)/pressure.length)}</div>    
                 </td>
                 <td>
                     <Sparklines height={50} width={100} data={humidity}>
                         <SparklinesLine color="yellow" />
+                        <SparklinesReferenceLine type="avg" />
                     </Sparklines>
+                    <div>{_.round(_.sum(humidity)/humidity.length)}</div>    
                 </td>
             </tr>
         );
